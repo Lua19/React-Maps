@@ -4,7 +4,9 @@ import { createContext } from "react";
 interface MapContexProps {
     isMapReady: boolean;
     map? : Map
+
+    setMap: (map: Map) => void
 }
 
 
-export const MapContex = createContext({} as MapContexProps )
+export const MapContext = createContext({} as MapContexProps )
