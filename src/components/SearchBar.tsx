@@ -1,6 +1,9 @@
-import { ChangeEvent, useRef } from "react"
+import { ChangeEvent, useContext, useRef } from "react"
+import { PlacesContext } from "../context";
 
 export const SearchBar = () => {
+
+    const {...PlacesProvider} = useContext(PlacesContext)
 
     const debounceRef = useRef<NodeJS.Timeout>()
 
@@ -9,10 +12,8 @@ export const SearchBar = () => {
             clearTimeout(debounceRef.current);
 
         debounceRef.current = setTimeout(() =>{
-            //Buscar cosas
-            console.log("Debounce", event.target.value);
-             
-        }, 500)
+            PlacesProvider.searchPlacesByTerm(event.target.value)
+        }, 350)
         
     }
 
