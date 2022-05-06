@@ -21,3 +21,13 @@
 .pointer{
     cursor: pointer;
 }
+.chosen{
+    background-color: #8800c7;
+    color: aliceblue;
+}
+.chosen:hover p{
+    color: black;
+}
+.chosen p{
+    color: aliceblue;
+}
