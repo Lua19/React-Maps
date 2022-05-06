@@ -19,7 +19,7 @@ export const BtnMyLocation = () => {
 
   return (
     
-    <button className='btn btn-success' style={{position: 'fixed', top: '20px', right: '20px', zIndex: 999}} onClick = {onClick}>
+    <button className='btn' style={{position: 'fixed', top: '20px', right: '20px',color:'white' , backgroundColor:'#8800c7', zIndex: 999}} onClick = {onClick}>
         My location
     </button>
   )

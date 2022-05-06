@@ -22,7 +22,7 @@ export const SearchBar = () => {
 
   return (
     <div className='search-container'>
-        <input type="text" className="form-control" placeholder="Search for a place ..." onChange={ onQueryChange} />
+        <input type="text" className="form-control shadow-none" placeholder="Search for a place ..." onChange={ onQueryChange} />
         <SearchResults/>
     </div>
   )
