@@ -5,8 +5,8 @@ import { LoadingPlaces } from "./";
 
 export const SearchResults = () => {
 
-  const {places, isLoadingPlaces} = useContext(PlacesContext)
-  const {map} = useContext(MapContext)
+  const {places, isLoadingPlaces, userLocation} = useContext(PlacesContext)
+  const {map, getRouteBetweenPoints} = useContext(MapContext)
   const [activeId, setActiveId] = useState('')
 
   if (isLoadingPlaces) {
@@ -25,6 +25,15 @@ export const SearchResults = () => {
             center: [lng,lat]
         })
   }
+  const getRoute = (place: Feature) => {
+
+    if(!userLocation) return;
+    const [lng, lat] = place.center
+
+    getRouteBetweenPoints(userLocation, [lng,lat])
+
+
+  }
 
   return (
     <ul className='list-group mt-3'>
@@ -39,8 +48,8 @@ export const SearchResults = () => {
           <p style={{fontSize: '12px'}}>
             {place.place_name}
           </p>
-          <button className="btn btn-outline-warning btn-sm" >
-            Go
+          <button className="btn btn-outline-warning btn-sm" onClick={() => getRoute(place)}>
+            Directions
           </button>
         </li>
       ))}
